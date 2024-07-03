@@ -26,24 +26,27 @@ const JobDescriptionForm = () => {
       });
       console.log(response.data);
     } catch (error) {
-      console.error('Error submitting the job description:', error);
+      console.error('There was an error submitting the job description!', error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col items-center space-y-4 p-4 border rounded shadow-lg">
-      <textarea
-        value={jobDescription}
-        onChange={(e) => setJobDescription(e.target.value)}
-        placeholder="Enter job description"
-        rows="10"
-        cols="50"
-        className="w-full max-w-lg p-2 border rounded"
-      />
-      <input type="file" onChange={handleFileChange} className="w-full max-w-lg" />
-      <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">
-        Submit
-      </button>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <textarea
+          value={jobDescription}
+          onChange={(e) => setJobDescription(e.target.value)}
+          placeholder="Enter job description"
+          rows="10"
+          cols="50"
+        />
+      </div>
+      <div>
+        <input type="file" onChange={handleFileChange} />
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
     </form>
   );
 };
